@@ -17,16 +17,15 @@ const border = css`
 `;
 
 const Main = styled.div`
-  width: 100%;
+  width: 84.4%;
   height: 56px;
   background-color: #222;
   position: fixed;
   top: 0px;
-  left: 0px;
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 1fr;
-  ${cGrid}
+  right: 0px;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 18px;
 `;
 Main.HeaderLogo = styled.img.attrs({
   src: `${headerLogo}`,
@@ -39,7 +38,7 @@ Main.HeaderBlockInput = styled.input`
   ${border}
   height: 38px;
   width: 559px;
-  margin-left: -20px;
+  /* margin-left: -20px; */
   padding: 2px 6px;
   border-radius: 2px 0 0 2px;
   border: 1px solid #303030;
@@ -135,7 +134,6 @@ Main.BottomBlock1 = styled.div`
     background: #FFFFFF;
     color: black;
   }
-  
 `;
 
 export default Main;

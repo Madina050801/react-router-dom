@@ -6,6 +6,9 @@ import { Test } from "../../Context/Test.jsx";
 import { Second } from "../../Context/SecondData.jsx";
 import { MainContext } from "../../Context/context.jsx";
 
+import { header } from "../../utils/header.js";
+import { useNavigate } from "react-router-dom";
+
 import Main from "./style.js";
 const Header = () => {
   const [state] = useContext(MainContext);
@@ -16,10 +19,11 @@ const Header = () => {
 
   const [second, SetSecond] = useContext(Second);
 
+  const navigate = useNavigate();
+
   return (
     <div>
       <Main>
-        <Main.HeaderLogo />
         <div style={{ display: "flex" }}>
           <Main.HeaderBlockInput
             placeholder="Search"
@@ -35,18 +39,25 @@ const Header = () => {
         </Main.HeaderBlockMore>
       </Main>
       <Main.Bottom>
-        <Main.BottomBlock1 onClick={() => SetTest("cinema")}>
+        {/* <Main.BottomBlock1 onClick={() => SetTest("cinema")}>
           Cinema
         </Main.BottomBlock1>
         <Main.BottomBlock1 onClick={() => SetTest("comedy")}>
           Comedy
         </Main.BottomBlock1>
         <Main.BottomBlock1 onClick={() => SetTest("cartoon")}>
-          Cartoon{" "}
+          Cartoon
         </Main.BottomBlock1>
         <Main.BottomBlock1 onClick={() => SetTest("sport")}>
-          Futbol{" "}
-        </Main.BottomBlock1>
+          Futbol
+        </Main.BottomBlock1> */}
+        {header.map((value) => {
+        return (
+          <Main.BottomBlock1 onClick={() => navigate(`/home/:${value.title}`)}>
+            {value.title}
+          </Main.BottomBlock1>
+        );
+      })}
       </Main.Bottom>
     </div>
   );
